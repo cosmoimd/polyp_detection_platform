@@ -1,15 +1,15 @@
-# Dataset Formatting for COCO
+# Dataset Download and Formatting
 
-This repository provides a script to format different open access colonoscopy datasets to COCO format.
+The code in this folder includes scripts to download and convert five different open-access colonoscopy datasets to COCO format. In the subfolder `datasets_for_yolo`, there are also scripts to format this data in YOLO format.
 
 ## Datasets Downloads
 First, download the zip files of LDPolyp Dataset from https://github.com/dashishi/LDPolypVideo-Benchmark into a directory.
 Once that is done, create a synapse authentication token and change the value of the syn_auth_token
 in colonoscopy_data/download_datasets.py. Then run `python colonoscopy_data/download_datasets.py <path_to_download> 
 <path_to_LDPolyp_dataset_zips>`. This will download the other two datasets, and unzip all the 
-compressed files. (SUN and REAL Colon datasets downloaded separately)
+compressed files. (SUN and REAL-Colon datasets are downloaded separately)
 
-## Datasets Used
+## Datasets Formatting
 Here are the datasets used, along with the download links and instructions to
 use the scripts to convert the datasets to coco format. 
 
@@ -45,7 +45,7 @@ a coco folder to contain all the images in train_images and train_ann.json for a
 * Run `python figshare_dataset.py` to automatically download the dataset in full from Figshare to the 
 ./dataset folder. Output folder can be updated setting variable `DOWNLOAD_DIR` in `figshare_dataset.py`.
 
-## Dataset Combination 
+## Dataset Combination for Platform Creation
 In order to create a combined dataset using symbolics please make sure to download and convert
 each dataset to coco format using the instructions above. Then, adjust any paths necessary in combine_coco_datasets.py
 and run `python colonoscopy_data/combine_coco_datasets.py`. A new folder will be made with train_ann.json and 

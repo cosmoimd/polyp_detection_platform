@@ -1,6 +1,6 @@
-# Colonoscopy Scripts
-Enhance your polyp detection models with the Real Colon Scripts toolkit, designed for comprehensive evaluation
-through reaction time analysis, accuracy metrics, missed detection identification, and performance visualization.
+# Metrics
+
+We introduce new metrics and FROC (Free-response Receiver Operating Characteristic) curves that demonstrate the clinical utility of a CADe (Computer-Aided Detection) system and assist in the fine-tuning of its hyperparameters. These metrics, accompanied by corresponding FROC plots, are tailored to meet clinical needs more closely than standard object detection metrics. Specifically, they focus on events of consecutive detections over a specified time length \( \tau \) and include per-polyp recall within \( \sigma \) seconds and false positive (FP) event rates per patient.
 
 ## ROC
 This will calculate the plot of recall per-polyp (%) in 3 seconds of entering the frame
@@ -9,7 +9,7 @@ multiple fROCs together using the `plot_fROC_pkls.py` code.
 #### Usage:
 `python standard_ROC.py <path_to_real_colon_base> <path_to_prediction_labels> <test_on> <output_path>`. 
 
-## fROC
+## FROC
 This will calculate the plot of recall per-polyp (%) in 3 seconds of entering the frame
 versus the fp events per video. It will also save a pkl file of the results that can be used to graph
 multiple fROCs together using the `plot_fROC_pkls.py` code.
@@ -17,12 +17,11 @@ multiple fROCs together using the `plot_fROC_pkls.py` code.
 `python fROC.py <path_to_real_colon_base> <path_to_prediction_labels> <test_on>`. You can also modify variables 
 such as `conf_check`, `iou_thr`, `tau_check`, and `sigma`.
 
-## Plot fROC PKLs
+## Multiple FROC Plotting
 This will create a plot combining different pkl files from the output of `fROC.py` code into one plot.
 #### Usage:
 `python plot_fROC_pkls.py <path_to_save_directory> <file_name> <pkl_file_1> <pkl_file_2> ...`. You can also change the
 values of `legend_title` and `legend_names` if you want custom values.
-
 
 ### Parameter Legend
 - `<path_to_real_colon_base>`: Path to the folder containing the real colon dataset downloads.
